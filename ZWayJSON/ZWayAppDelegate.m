@@ -7,40 +7,97 @@
 //
 
 #import "ZWayAppDelegate.h"
+#import "ZWDataStore.h"
+#import "ZWayProfilesViewController.h"
 
 @implementation ZWayAppDelegate
 
+@synthesize window = _window;
+@synthesize dataStore = _dataStore;
+
++ (ZWayAppDelegate*)sharedDelegate
+{
+    return [[UIApplication sharedApplication] delegate];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    self.dataStore = [[ZWDataStore alloc] init];
+    self.profile = nil;
+    
+    NSURL *plistPath = [[self.dataStore applicationDocumentsDirectory] URLByAppendingPathComponent:@"settings.plist"];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:plistPath.path])
+    {
+        NSArray* array = [[NSArray alloc] initWithContentsOfURL:plistPath];
+        NSString* profileName = [[array objectAtIndex:0] valueForKey:@"profile"];
+        if (profileName != nil && profileName.length > 0)
+        {
+            self.profile = [self.dataStore getProfile:profileName];
+        }
+        
+        NSNumber* locked = [[array objectAtIndex:0] valueForKey:@"settingsLocked"];
+        _settingsLocked = (locked != nil && [locked boolValue]);
+    }
+    
+    [self.window makeKeyAndVisible];
+    [self useColorTheme:self.profile.theme];
+    
     return YES;
 }
-							
+
+- (void)useColorTheme:(NSString*)theme
+{
+    if(theme == nil)
+    {
+        [[UINavigationBar appearance] setTintColor:[UIColor cyanColor]];
+    }
+    else
+    {
+        if([theme isEqualToString:@"Red"])
+            [[UINavigationBar appearance] setTintColor:[UIColor redColor]];
+        else if([theme isEqualToString:@"Blue"])
+            [[UINavigationBar appearance] setTintColor:[UIColor blueColor]];
+        else if([theme isEqualToString:@"Orange"])
+            [[UINavigationBar appearance] setTintColor:[UIColor orangeColor]];
+        else if([theme isEqualToString:@"Purple"])
+            [[UINavigationBar appearance] setTintColor:[UIColor purpleColor]];
+        else if([theme isEqualToString:@"Cyan"])
+            [[UINavigationBar appearance] setTintColor:[UIColor cyanColor]];
+    }
+    
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    // try local address on activate
+    if (self.profile != nil)
+    {
+        @synchronized(self.profile)
+        {
+            NSLog(@"Changed outdoor to indoor");
+            self.profile.useOutdoor = [NSNumber numberWithBool:NO];
+        }
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
 }
 
 @end

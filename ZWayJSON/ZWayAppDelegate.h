@@ -7,9 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CMProfile.h"
+#import "ZWDataStore.h"
 
 @interface ZWayAppDelegate : UIResponder <UIApplicationDelegate>
+{
+    UIWindow *window;
+}
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) ZWDataStore *dataStore;
+@property (strong, nonatomic) CMProfile *profile;
+@property (readonly) BOOL settingsLocked;
+
++ (ZWayAppDelegate*)sharedDelegate;
+- (void)useColorTheme:(NSString*)theme;
 
 @end
