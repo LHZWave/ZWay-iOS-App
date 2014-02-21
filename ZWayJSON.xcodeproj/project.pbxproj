@@ -56,8 +56,9 @@
 		A025BCB418ACF90300AF73DC /* window-focus.png in Resources */ = {isa = PBXBuildFile; fileRef = A025BC8418ACF90300AF73DC /* window-focus.png */; };
 		A025BCB518ACF90300AF73DC /* window.png in Resources */ = {isa = PBXBuildFile; fileRef = A025BC8518ACF90300AF73DC /* window.png */; };
 		A03D5C6F1897F1DC0016356B /* connected-g.png in Resources */ = {isa = PBXBuildFile; fileRef = A03D5C6E1897F1DC0016356B /* connected-g.png */; };
-		A0463DE418AB6E840054ECA8 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A0463DE318AB6E840054ECA8 /* Reachability.m */; };
+		A047569F18B633E9004E1160 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A047569E18B633E9004E1160 /* CFNetwork.framework */; };
 		A048BC1818A37DF500BF32C7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A048BC1718A37DF500BF32C7 /* QuartzCore.framework */; };
+		A04A6D1318B208E90094CA3C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A04A6D1518B208E90094CA3C /* Localizable.strings */; };
 		A04AA36118A2447700A98C0E /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = A04AA35618A2447700A98C0E /* NSMutableArray+SWUtilityButtons.m */; };
 		A04AA36218A2447700A98C0E /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A04AA35818A2447700A98C0E /* SWCellScrollView.m */; };
 		A04AA36318A2447700A98C0E /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A04AA35A18A2447700A98C0E /* SWLongPressGestureRecognizer.m */; };
@@ -92,8 +93,6 @@
 		A085F5491886C5F00061E721 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A085F5481886C5F00061E721 /* SenTestingKit.framework */; };
 		A085F54A1886C5F00061E721 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A085F5161886C5F00061E721 /* UIKit.framework */; };
 		A085F54B1886C5F00061E721 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A085F5181886C5F00061E721 /* Foundation.framework */; };
-		A085F5531886C5F00061E721 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A085F5511886C5F00061E721 /* InfoPlist.strings */; };
-		A085F5561886C5F00061E721 /* ZWayJSONTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A085F5551886C5F00061E721 /* ZWayJSONTests.m */; };
 		A0A284FB1897C862004496C8 /* ZWPasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A284F81897C862004496C8 /* ZWPasswordCell.xib */; };
 		A0A284FC1897C862004496C8 /* ZWTextEditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A284F91897C862004496C8 /* ZWTextEditCell.xib */; };
 		A0A284FD1897C862004496C8 /* ZWUrlEditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A284FA1897C862004496C8 /* ZWUrlEditCell.xib */; };
@@ -180,9 +179,15 @@
 		A025BC8418ACF90300AF73DC /* window-focus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "window-focus.png"; path = "Images/window-focus.png"; sourceTree = "<group>"; };
 		A025BC8518ACF90300AF73DC /* window.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = window.png; path = Images/window.png; sourceTree = "<group>"; };
 		A03D5C6E1897F1DC0016356B /* connected-g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connected-g.png"; sourceTree = "<group>"; };
-		A0463DE218AB6E840054ECA8 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		A0463DE318AB6E840054ECA8 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		A047569E18B633E9004E1160 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		A048BC1718A37DF500BF32C7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A04A6D1418B208E90094CA3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A04A6D1A18B216410094CA3C /* de */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = de; path = de.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		A04A6D1B18B216410094CA3C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A04A6D1C18B216410094CA3C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A04A6D1E18B2164B0094CA3C /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		A04A6D1F18B2164B0094CA3C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A04A6D2018B2164B0094CA3C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A04AA35418A2447700A98C0E /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		A04AA35518A2447700A98C0E /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
 		A04AA35618A2447700A98C0E /* NSMutableArray+SWUtilityButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SWUtilityButtons.m"; sourceTree = "<group>"; };
@@ -237,10 +242,6 @@
 		A085F53C1886C5F00061E721 /* ZWayWidgetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWayWidgetViewController.m; sourceTree = "<group>"; };
 		A085F5471886C5F00061E721 /* ZWayJSONTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZWayJSONTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A085F5481886C5F00061E721 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		A085F5501886C5F00061E721 /* ZWayJSONTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZWayJSONTests-Info.plist"; sourceTree = "<group>"; };
-		A085F5521886C5F00061E721 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A085F5541886C5F00061E721 /* ZWayJSONTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWayJSONTests.h; sourceTree = "<group>"; };
-		A085F5551886C5F00061E721 /* ZWayJSONTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWayJSONTests.m; sourceTree = "<group>"; };
 		A0A284F81897C862004496C8 /* ZWPasswordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZWPasswordCell.xib; sourceTree = "<group>"; };
 		A0A284F91897C862004496C8 /* ZWTextEditCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZWTextEditCell.xib; sourceTree = "<group>"; };
 		A0A284FA1897C862004496C8 /* ZWUrlEditCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZWUrlEditCell.xib; sourceTree = "<group>"; };
@@ -283,8 +284,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A048BC1818A37DF500BF32C7 /* QuartzCore.framework in Frameworks */,
 				A0A285051897C9B6004496C8 /* SystemConfiguration.framework in Frameworks */,
+				A047569F18B633E9004E1160 /* CFNetwork.framework in Frameworks */,
+				A048BC1818A37DF500BF32C7 /* QuartzCore.framework in Frameworks */,
 				A0ABBA991897B054002D7FBF /* CoreData.framework in Frameworks */,
 				A085F5171886C5F00061E721 /* UIKit.framework in Frameworks */,
 				A085F5191886C5F00061E721 /* Foundation.framework in Frameworks */,
@@ -305,6 +307,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A04A6D1818B211950094CA3C /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A085F52E1886C5F00061E721 /* MainStoryboard_iPhone.storyboard */,
+				A04A6D1518B208E90094CA3C /* Localizable.strings */,
+			);
+			name = en.lproj;
+			sourceTree = "<group>";
+		};
 		A04AA35318A2447700A98C0E /* PodFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,8 +347,6 @@
 				A0A284F81897C862004496C8 /* ZWPasswordCell.xib */,
 				A0A284F91897C862004496C8 /* ZWTextEditCell.xib */,
 				A0A284FA1897C862004496C8 /* ZWUrlEditCell.xib */,
-				A0463DE218AB6E840054ECA8 /* Reachability.h */,
-				A0463DE318AB6E840054ECA8 /* Reachability.m */,
 			);
 			name = Options;
 			sourceTree = "<group>";
@@ -483,7 +492,6 @@
 			isa = PBXGroup;
 			children = (
 				A085F51C1886C5F00061E721 /* ZWayJSON */,
-				A085F54E1886C5F00061E721 /* ZWayJSONTests */,
 				A085F5151886C5F00061E721 /* Frameworks */,
 				A085F5141886C5F00061E721 /* Products */,
 			);
@@ -501,6 +509,7 @@
 		A085F5151886C5F00061E721 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A047569E18B633E9004E1160 /* CFNetwork.framework */,
 				A048BC1718A37DF500BF32C7 /* QuartzCore.framework */,
 				A0A285041897C9B6004496C8 /* SystemConfiguration.framework */,
 				A0ABBA981897B054002D7FBF /* CoreData.framework */,
@@ -523,6 +532,7 @@
 				A056532A189264DF00103D65 /* Data Handling */,
 				A0581DE41889751A004E4309 /* DeviceItems */,
 				A0581DE3188974D4004E4309 /* Images */,
+				A04A6D1818B211950094CA3C /* en.lproj */,
 				A085F51D1886C5F00061E721 /* Supporting Files */,
 			);
 			path = ZWayJSON;
@@ -538,25 +548,6 @@
 				A085F5281886C5F00061E721 /* Default.png */,
 				A085F52A1886C5F00061E721 /* Default@2x.png */,
 				A085F52C1886C5F00061E721 /* Default-568h@2x.png */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		A085F54E1886C5F00061E721 /* ZWayJSONTests */ = {
-			isa = PBXGroup;
-			children = (
-				A085F5541886C5F00061E721 /* ZWayJSONTests.h */,
-				A085F5551886C5F00061E721 /* ZWayJSONTests.m */,
-				A085F54F1886C5F00061E721 /* Supporting Files */,
-			);
-			path = ZWayJSONTests;
-			sourceTree = "<group>";
-		};
-		A085F54F1886C5F00061E721 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A085F5501886C5F00061E721 /* ZWayJSONTests-Info.plist */,
-				A085F5511886C5F00061E721 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -580,7 +571,6 @@
 				A056532B1892652D00103D65 /* NotificationController */,
 				A0565329189264B400103D65 /* WidgetController */,
 				A04B162B18A8BF0C00740FD2 /* Options */,
-				A085F52E1886C5F00061E721 /* MainStoryboard_iPhone.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -640,6 +630,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				de,
+				ru,
 			);
 			mainGroup = A085F50A1886C5F00061E721;
 			productRefGroup = A085F5141886C5F00061E721 /* Products */;
@@ -726,6 +718,7 @@
 				A025BCB318ACF90300AF73DC /* water.png in Resources */,
 				A025BCB418ACF90300AF73DC /* window-focus.png in Resources */,
 				A025BCB518ACF90300AF73DC /* window.png in Resources */,
+				A04A6D1318B208E90094CA3C /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,7 +726,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A085F5531886C5F00061E721 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -788,7 +780,6 @@
 				A04AA36418A2447700A98C0E /* SWTableViewCell.m in Sources */,
 				A04AA36518A2447700A98C0E /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				A04AA36618A2447700A98C0E /* SWUtilityButtonView.m in Sources */,
-				A0463DE418AB6E840054ECA8 /* Reachability.m in Sources */,
 				A076C1E518ACB59D00712B4E /* ZWPickerPopup.m in Sources */,
 				A076C1E918ACD8E800712B4E /* ZWDeviceItemFan.m in Sources */,
 			);
@@ -798,7 +789,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A085F5561886C5F00061E721 /* ZWayJSONTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -813,10 +803,23 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		A04A6D1518B208E90094CA3C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A04A6D1418B208E90094CA3C /* en */,
+				A04A6D1B18B216410094CA3C /* de */,
+				A04A6D1F18B2164B0094CA3C /* ru */,
+			);
+			name = Localizable.strings;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		A085F51F1886C5F00061E721 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A085F5201886C5F00061E721 /* en */,
+				A04A6D1C18B216410094CA3C /* de */,
+				A04A6D2018B2164B0094CA3C /* ru */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -825,16 +828,10 @@
 			isa = PBXVariantGroup;
 			children = (
 				A085F52F1886C5F00061E721 /* en */,
+				A04A6D1A18B216410094CA3C /* de */,
+				A04A6D1E18B2164B0094CA3C /* ru */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		A085F5511886C5F00061E721 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A085F5521886C5F00061E721 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

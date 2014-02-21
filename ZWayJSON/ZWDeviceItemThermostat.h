@@ -29,7 +29,6 @@
     NSString *currentState;
 }
 
-@property (strong, nonatomic) IBOutlet UILabel *temperatureView;
 @property (strong, nonatomic) IBOutlet UIButton *modeView;
 
 

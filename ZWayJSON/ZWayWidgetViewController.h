@@ -20,6 +20,7 @@
     NSMutableArray *objects;
     NSDictionary *JSON;
     NSNumber *deviceIndex;
+    BOOL alertShown;
 }
 
 @property (strong, nonatomic) NSString *currentButton;

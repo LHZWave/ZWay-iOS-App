@@ -29,11 +29,11 @@
     [super viewDidLoad];
     
     colors = [NSMutableArray new];
-    [colors addObject:@"Red"];
-    [colors addObject:@"Blue"];
-    [colors addObject:@"Orange"];
-    [colors addObject:@"Purple"];
-    [colors addObject:@"Cyan"];
+    [colors addObject:NSLocalizedString(@"Red", @"Red")];
+    [colors addObject:NSLocalizedString(@"Blue", @"Blue")];
+    [colors addObject:NSLocalizedString(@"Orange", @"Orange")];
+    [colors addObject:NSLocalizedString(@"Purple", @"Purple")];
+    [colors addObject:NSLocalizedString(@"Cyan", @"Cyan")];
     
     ZWDataStore *store = [ZWayAppDelegate sharedDelegate].dataStore;
     
@@ -47,7 +47,7 @@
     addButton.enabled = !ZWayAppDelegate.sharedDelegate.settingsLocked;
     self.navigationItem.leftBarButtonItem = addButton;
     
-    self.navigationItem.title = NSLocalizedString(@"Profiles", @"");
+    self.navigationItem.title = NSLocalizedString(@"Options", @"");
     
     colorPicker = [[UIPickerView alloc] initWithFrame:(CGRect){{0, 0}, 320, 480}];
     colorPicker.delegate = self;
@@ -105,11 +105,11 @@
 {
     switch (section) {
         case 0:
-            return @"Profiles";
+            return NSLocalizedString(@"Profiles", @"");
             break;
             
         case 1:
-            return @"Color theme";
+            return NSLocalizedString(@"Color", @"color theme");
             break;
             
         default:
@@ -174,7 +174,7 @@
             if(ZWayAppDelegate.sharedDelegate.profile.theme != nil)
                 cell.textLabel.text = ZWayAppDelegate.sharedDelegate.profile.theme;
             else
-                cell.textLabel.text = @"default";
+                cell.textLabel.text = NSLocalizedString(@"Default", @"default color");
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
             
@@ -294,33 +294,39 @@
     {
         [self.navigationController.navigationBar setTintColor:[UIColor cyanColor]];
         [[UIToolbar appearance] setTintColor:[UIColor cyanColor]];
+        [[UINavigationBar appearance] setTintColor:[UIColor cyanColor]];
     }
     else
     {
-        if([color isEqualToString:@"Red"])
+        if([color isEqualToString:NSLocalizedString(@"Red", @"")])
         {
             [self.navigationController.navigationBar setTintColor:[UIColor redColor]];
             [[UIToolbar appearance] setTintColor:[UIColor redColor]];
+            [[UINavigationBar appearance] setTintColor:[UIColor redColor]];
         }
-        else if([color isEqualToString:@"Blue"])
+        else if([color isEqualToString:NSLocalizedString(@"Blue", @"")])
         {
             [self.navigationController.navigationBar setTintColor:[UIColor blueColor]];
             [[UIToolbar appearance] setTintColor:[UIColor blueColor]];
+            [[UINavigationBar appearance] setTintColor:[UIColor blueColor]];
         }
-        else if([color isEqualToString:@"Orange"])
+        else if([color isEqualToString:NSLocalizedString(@"Orange", @"")])
         {
             [self.navigationController.navigationBar setTintColor:[UIColor orangeColor]];
             [[UIToolbar appearance] setTintColor:[UIColor orangeColor]];
+            [[UINavigationBar appearance] setTintColor:[UIColor orangeColor]];
         }
-        else if([color isEqualToString:@"Purple"])
+        else if([color isEqualToString:NSLocalizedString(@"Purple", @"")])
         {
             [self.navigationController.navigationBar setTintColor:[UIColor purpleColor]];
             [[UIToolbar appearance] setTintColor:[UIColor purpleColor]];
+            [[UINavigationBar appearance] setTintColor:[UIColor purpleColor]];
         }
-        else if([color isEqualToString:@"Cyan"])
+        else if([color isEqualToString:NSLocalizedString(@"Cyan", @"")])
         {
             [self.navigationController.navigationBar setTintColor:[UIColor cyanColor]];
             [[UIToolbar appearance] setTintColor:[UIColor cyanColor]];
+            [[UINavigationBar appearance] setTintColor:[UIColor cyanColor]];
         }
     }
 }
@@ -367,7 +373,7 @@
      {
      // do not dismiss profiles screen if there's no profile
      
-     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Profiles", @"") message:NSLocalizedString(@"You should create at least one profile", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"") otherButtonTitles:nil];
+     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Profiles", @"") message:NSLocalizedString(@"NoProfile", @"Message that a profile should be created") delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"") otherButtonTitles:nil];
      [alert show];
      
      return;
@@ -378,7 +384,7 @@
      {
      // do not dismiss profiles screen if no profile is selected
      
-     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Profiles", @"") message:NSLocalizedString(@"You should select a profile", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"") otherButtonTitles:nil];
+     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Profiles", @"") message:NSLocalizedString(@"NoSelection", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"") otherButtonTitles:nil];
      [alert show];
      
      return;

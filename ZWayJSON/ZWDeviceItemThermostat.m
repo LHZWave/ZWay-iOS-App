@@ -24,7 +24,6 @@
 
 @implementation ZWDeviceItemThermostat
 
-@synthesize temperatureView = _temperatureView;
 @synthesize modeView = _modeView;
 
 + (ZWDeviceItemThermostat*)device
@@ -35,7 +34,6 @@
 
 - (void)dealloc
 {
-    self.temperatureView = nil;
     self.modeView = nil;
     states = nil;
 }
@@ -43,19 +41,19 @@
 - (void)currentTitle
 {
     if([currentState isEqualToString:@"0"])
-        [self.modeView setTitle:@"Off" forState:UIControlStateNormal];
+        [self.modeView setTitle:NSLocalizedString(@"Off", @"") forState:UIControlStateNormal];
     else if ([currentState isEqualToString:@"1"])
-        [self.modeView setTitle:@"Heat" forState:UIControlStateNormal];
+        [self.modeView setTitle:NSLocalizedString(@"Heat", @"") forState:UIControlStateNormal];
     else if ([currentState isEqualToString:@"2"])
-        [self.modeView setTitle:@"Cool" forState:UIControlStateNormal];
+        [self.modeView setTitle:NSLocalizedString(@"Cool", @"") forState:UIControlStateNormal];
     else if ([currentState isEqualToString:@"3"])
-        [self.modeView setTitle:@"Auto" forState:UIControlStateNormal];
+        [self.modeView setTitle:NSLocalizedString(@"Auto", @"") forState:UIControlStateNormal];
     else if ([currentState isEqualToString:@"5"])
-        [self.modeView setTitle:@"Resume" forState:UIControlStateNormal];
+        [self.modeView setTitle:NSLocalizedString(@"Resume", @"") forState:UIControlStateNormal];
     else if ([currentState isEqualToString:@"6"])
-        [self.modeView setTitle:@"Fan Only" forState:UIControlStateNormal];
+        [self.modeView setTitle:NSLocalizedString(@"FanOnly", @"") forState:UIControlStateNormal];
     else if ([currentState isEqualToString:@"8"])
-        [self.modeView setTitle:@"Dry Air" forState:UIControlStateNormal];
+        [self.modeView setTitle:NSLocalizedString(@"DryAir", @"") forState:UIControlStateNormal];
 }
 
 - (void)updateState
@@ -64,13 +62,13 @@
     [self currentTitle];
     
     states = [NSMutableArray new];
-    [states addObject:@"Off"];
-    [states addObject:@"Heat"];
-    [states addObject:@"Cool"];
-    [states addObject:@"Auto"];
-    [states addObject:@"Resume"];
-    [states addObject:@"Fan Only"];
-    [states addObject:@"Dry Air"];
+    [states addObject:NSLocalizedString(@"Off", @"")];
+    [states addObject:NSLocalizedString(@"Heat", @"")];
+    [states addObject:NSLocalizedString(@"Cool", @"")];
+    [states addObject:NSLocalizedString(@"Auto", @"")];
+    [states addObject:NSLocalizedString(@"Resume", @"")];
+    [states addObject:NSLocalizedString(@"FanOnly", @"")];
+    [states addObject:NSLocalizedString(@"DryAir", @"")];
 }
 
 - (void)setMode:(id)sender
@@ -115,19 +113,19 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    if([[states objectAtIndex:row] isEqualToString:@"Off"])
+    if([[states objectAtIndex:row] isEqualToString:NSLocalizedString(@"Off", @"")])
         currentState = @"0";
-    else if([[states objectAtIndex:row] isEqualToString:@"Heat"])
+    else if([[states objectAtIndex:row] isEqualToString:NSLocalizedString(@"Heat", @"")])
         currentState = @"1";
-    else if([[states objectAtIndex:row] isEqualToString:@"Cool"])
+    else if([[states objectAtIndex:row] isEqualToString:NSLocalizedString(@"Cool", @"")])
         currentState = @"2";
-    else if([[states objectAtIndex:row] isEqualToString:@"Auto"])
+    else if([[states objectAtIndex:row] isEqualToString:NSLocalizedString(@"Auto", @"")])
         currentState = @"3";
-    else if([[states objectAtIndex:row] isEqualToString:@"Resume"])
+    else if([[states objectAtIndex:row] isEqualToString:NSLocalizedString(@"Resume", @"")])
         currentState = @"5";
-    else if([[states objectAtIndex:row] isEqualToString:@"Fan Only"])
+    else if([[states objectAtIndex:row] isEqualToString:NSLocalizedString(@"FanOnly", @"")])
         currentState = @"6";
-    else if([[states objectAtIndex:row] isEqualToString:@"Dry Air"])
+    else if([[states objectAtIndex:row] isEqualToString:NSLocalizedString(@"DryAir", @"")])
         currentState = @"8";
     
     [self currentTitle];

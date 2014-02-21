@@ -34,7 +34,8 @@
 
 - (void)createRequestWithURL:(NSString *)url
 {
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageAllowedInMemoryOnly timeoutInterval:30];
+    [request setHTTPMethod:@"POST"];
     [request setValue:@"*/*" forHTTPHeaderField:@"Accept"];
     [request setValue:@"gzip, deflate" forHTTPHeaderField:@"Accept-Encoding"];
     
@@ -55,7 +56,10 @@
     int responseStatusCode = [httpResponse statusCode];
     
     if(responseStatusCode != 200)
-        NSLog(@"Request failed!");
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ConnectionFail", @"") message:NSLocalizedString(@"FailMessage", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"OK", @"") otherButtonTitles:nil, nil];
+        [alert show];
+    }
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
@@ -67,9 +71,27 @@
 {
     receivedData = nil;
     
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ConnectionFail", @"") message:[error localizedDescription] delegate:self cancelButtonTitle:NSLocalizedString(@"OK", @"") otherButtonTitles:nil, nil];
+    [alert show];
+    
     NSLog(@"Connection failed! Error - %@ %@",
           [error localizedDescription],
           [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+{
+    if([challenge previousFailureCount] == 0)
+    {
+        NSURLCredential *credentials = [[NSURLCredential alloc] initWithUser:ZWayAppDelegate.sharedDelegate.profile.userLogin password:ZWayAppDelegate.sharedDelegate.profile.userPassword persistence:NSURLCredentialPersistenceNone];
+    
+        [[challenge sender] useCredential:credentials forAuthenticationChallenge:challenge];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"CredentialError", @"Authentication Error") message:NSLocalizedString(@"WrongCred", @"Can´t connect with these credentials") delegate:self cancelButtonTitle:NSLocalizedString(@"OK", @"") otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 @end

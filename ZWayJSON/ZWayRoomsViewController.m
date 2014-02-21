@@ -50,6 +50,7 @@
     
     tableview.hidden = NO;
     noItemsLabel.hidden = YES;
+    noItemsLabel.text = NSLocalizedString(@"NoDevices", @"");
     [tableview reloadData];
 }
 
@@ -138,7 +139,7 @@
         NSMutableArray *rightUtilityButtons = [NSMutableArray new];
         
         [rightUtilityButtons sw_addUtilityButtonWithColor:
-         [UIColor lightGrayColor] title:@"To Dash"];
+         [UIColor lightGrayColor] title:NSLocalizedString(@"ToDash", @"Message: Move to dashboard")];
         weakCell.rightUtilityButtons = rightUtilityButtons;
         weakCell.delegate = self;
     } force:NO];
@@ -163,13 +164,13 @@
 
             if(moved == YES)
             {
-                [[cell.rightUtilityButtons objectAtIndex:index] setTitle:@"Done" forState:UIControlStateNormal];
+                [[cell.rightUtilityButtons objectAtIndex:index] setTitle:NSLocalizedString(@"Done", @"Message that the object was added") forState:UIControlStateNormal];
                 [self performSelector:@selector(changeToNormal:) withObject:cell afterDelay:3];
                 [cell performSelector:@selector(hideUtilityButtonsAnimated:) withObject:[NSNumber numberWithBool:YES] afterDelay:3];
             }
             else
             {
-                [[cell.rightUtilityButtons objectAtIndex:index] setTitle:@"Is part" forState:UIControlStateNormal];
+                [[cell.rightUtilityButtons objectAtIndex:index] setTitle:NSLocalizedString(@"IsPart", @"Message that the device is already part of the dashboard") forState:UIControlStateNormal];
                 [self performSelector:@selector(changeToNormal:) withObject:cell afterDelay:3];
                 [cell performSelector:@selector(hideUtilityButtonsAnimated:) withObject:[NSNumber numberWithBool:YES] afterDelay:3];
             }
@@ -183,7 +184,7 @@
 
 - (void)changeToNormal:(SWTableViewCell*)cell
 {
-    [[cell.rightUtilityButtons objectAtIndex:0] setTitle:@"To Dash" forState:UIControlStateNormal];
+    [[cell.rightUtilityButtons objectAtIndex:0] setTitle:NSLocalizedString(@"ToDash", @"") forState:UIControlStateNormal];
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath

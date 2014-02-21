@@ -21,7 +21,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.title = @"Notifications";
+    self.navigationItem.title = NSLocalizedString(@"Notifications", @"Notifications");
+    self.noItemsLabel.text = NSLocalizedString(@"OKMessage", @"");
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -44,9 +45,11 @@
         notifications = [[dictionary objectForKey:@"notifications"] mutableCopy];
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:@"There was a problem with the update" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:NSLocalizedString(@"UpdateError", @"Message that a problem occured during the update") delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"") otherButtonTitles:nil];
         [alert show];
     }
+    
+    [self performSelector:@selector(viewDidAppear:) withObject:[NSNumber numberWithBool:YES] afterDelay:30.0];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

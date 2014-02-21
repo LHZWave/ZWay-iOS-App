@@ -12,9 +12,9 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The dashboard is empty now. You can fill it with frequently used widgets by swiping them left. " textAlignment="center" lineBreakMode="clip" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="zZh-bM-UNK">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The dashboard is empty now. You can fill it with frequently used widgets by swiping them left. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="zZh-bM-UNK">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="172" id="nzV-Tq-Asl"/>
+                                    <constraint firstAttribute="height" constant="167" id="vQi-OZ-VGX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -31,12 +31,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="khX-rs-IMQ" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="0dD-yI-FRO"/>
-                            <constraint firstItem="zZh-bM-UNK" firstAttribute="top" secondItem="16" secondAttribute="top" constant="142" id="87c-Lx-8UY"/>
+                            <constraint firstItem="khX-rs-IMQ" firstAttribute="top" secondItem="16" secondAttribute="top" type="default" id="6GM-N7-bG7"/>
                             <constraint firstItem="khX-rs-IMQ" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="DD4-bg-PjC"/>
                             <constraint firstItem="zZh-bM-UNK" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="H4C-ug-5eu"/>
                             <constraint firstItem="zZh-bM-UNK" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="Lin-lY-Mba"/>
-                            <constraint firstItem="khX-rs-IMQ" firstAttribute="bottom" secondItem="16" secondAttribute="bottom" type="default" id="MO2-ps-Ocf"/>
-                            <constraint firstItem="khX-rs-IMQ" firstAttribute="top" secondItem="16" secondAttribute="top" type="default" id="zem-ZL-EtF"/>
+                            <constraint firstItem="khX-rs-IMQ" firstAttribute="bottom" secondItem="16" secondAttribute="bottom" type="default" id="Zfy-SR-J3F"/>
+                            <constraint firstItem="khX-rs-IMQ" firstAttribute="centerY" secondItem="zZh-bM-UNK" secondAttribute="centerY" type="default" id="eA4-YN-nV2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Dashboard" id="NsS-Ip-axy"/>
@@ -293,11 +293,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mAO-Th-xTf" firstAttribute="top" secondItem="NZc-2r-t1W" secondAttribute="top" constant="170" id="2J7-ce-VNN"/>
+                            <constraint firstItem="JFO-id-OFi" firstAttribute="bottom" secondItem="NZc-2r-t1W" secondAttribute="bottom" type="default" id="6Pi-lq-lCQ"/>
                             <constraint firstItem="JFO-id-OFi" firstAttribute="centerX" secondItem="mAO-Th-xTf" secondAttribute="centerX" type="default" id="EY3-gZ-eKc"/>
+                            <constraint firstItem="JFO-id-OFi" firstAttribute="top" secondItem="NZc-2r-t1W" secondAttribute="top" type="default" id="bzc-0f-1kj"/>
                             <constraint firstItem="JFO-id-OFi" firstAttribute="leading" secondItem="NZc-2r-t1W" secondAttribute="leading" type="default" id="ciN-SR-oxr"/>
-                            <constraint firstItem="JFO-id-OFi" firstAttribute="bottom" secondItem="NZc-2r-t1W" secondAttribute="bottom" type="default" id="uLZ-mz-rdd"/>
                             <constraint firstItem="JFO-id-OFi" firstAttribute="trailing" secondItem="NZc-2r-t1W" secondAttribute="trailing" type="default" id="utH-Ri-rsh"/>
-                            <constraint firstItem="JFO-id-OFi" firstAttribute="top" secondItem="NZc-2r-t1W" secondAttribute="top" type="default" id="vDl-pQ-2QM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="V4c-TF-l3w"/>
@@ -432,6 +432,8 @@
         <class className="ZWayNewProfileViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ZWayNewProfileViewController.h"/>
             <relationships>
+                <relationship kind="action" name="store:"/>
+                <relationship kind="action" name="testConnection:With:" candidateClass="NSString"/>
                 <relationship kind="outlet" name="tableview" candidateClass="UITableView"/>
             </relationships>
         </class>

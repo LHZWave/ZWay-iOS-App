@@ -50,19 +50,41 @@
     if(theme == nil)
     {
         [[UINavigationBar appearance] setTintColor:[UIColor cyanColor]];
+        [[UISwitch appearance] setOnTintColor:[UIColor cyanColor]];
+        [[UISlider appearance] setMinimumTrackTintColor:[UIColor cyanColor]];
     }
     else
     {
-        if([theme isEqualToString:@"Red"])
+        if([theme isEqualToString:NSLocalizedString(@"Red", @"")])
+        {
             [[UINavigationBar appearance] setTintColor:[UIColor redColor]];
-        else if([theme isEqualToString:@"Blue"])
+            [[UISwitch appearance] setOnTintColor:[UIColor redColor]];
+            [[UISlider appearance] setMinimumTrackTintColor:[UIColor redColor]];
+        }
+        else if([theme isEqualToString:NSLocalizedString(@"Blue", @"")])
+        {
             [[UINavigationBar appearance] setTintColor:[UIColor blueColor]];
-        else if([theme isEqualToString:@"Orange"])
+            [[UISwitch appearance] setOnTintColor:[UIColor blueColor]];
+            [[UISlider appearance] setMinimumTrackTintColor:[UIColor blueColor]];
+        }
+        else if([theme isEqualToString:NSLocalizedString(@"Orange", @"")])
+        {
             [[UINavigationBar appearance] setTintColor:[UIColor orangeColor]];
-        else if([theme isEqualToString:@"Purple"])
+            [[UISwitch appearance] setOnTintColor:[UIColor orangeColor]];
+            [[UISlider appearance] setMinimumTrackTintColor:[UIColor orangeColor]];
+        }
+        else if([theme isEqualToString:NSLocalizedString(@"Purple", @"")])
+        {
             [[UINavigationBar appearance] setTintColor:[UIColor purpleColor]];
-        else if([theme isEqualToString:@"Cyan"])
+            [[UISwitch appearance] setOnTintColor:[UIColor purpleColor]];
+            [[UISlider appearance] setMinimumTrackTintColor:[UIColor purpleColor]];
+        }
+        else if([theme isEqualToString:NSLocalizedString(@"Cyan", @"")])
+        {
             [[UINavigationBar appearance] setTintColor:[UIColor cyanColor]];
+            [[UISwitch appearance] setOnTintColor:[UIColor cyanColor]];
+            [[UISlider appearance] setMinimumTrackTintColor:[UIColor cyanColor]];
+        }
     }
     
 }

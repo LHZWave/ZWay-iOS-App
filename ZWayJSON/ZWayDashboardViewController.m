@@ -28,8 +28,9 @@
 {
     [super viewWillAppear:animated];
     
-    if (ZWayAppDelegate.sharedDelegate.profile != nil) {
-        //reload data from cache
+    if (ZWayAppDelegate.sharedDelegate.profile != nil)
+    {
+        //get Objects for profile
         objects = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithData:ZWayAppDelegate.sharedDelegate.profile.objects]];
     
         if(objects.count != 0)
@@ -37,6 +38,7 @@
             tableview.hidden = NO;
             noItemsLabel.hidden = YES;
             self.navigationItem.rightBarButtonItem = self.editButtonItem;
+            self.navigationItem.rightBarButtonItem.style = UIBarButtonItemStylePlain;
         }
         else
         {
@@ -52,6 +54,7 @@
         noItemsLabel.hidden = NO;
     }
     
+    noItemsLabel.text = NSLocalizedString(@"NoDashboard", @"");
     [tableview reloadData];
 }
 
@@ -121,7 +124,7 @@
             
             [rightUtilityButtons sw_addUtilityButtonWithColor:
              [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
-                                                        title:@"Remove"];
+                                                        title:NSLocalizedString(@"Remove", @"Remove Button")];
             weakCell.rightUtilityButtons = rightUtilityButtons;
             weakCell.delegate = self;
         } force:NO];

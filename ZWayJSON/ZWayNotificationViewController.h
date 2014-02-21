@@ -18,5 +18,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *noItemsLabel;
 
 - (void)extractNotifications:(NSDictionary*)dictionary;
+- (void)updateInBackground;
 
 @end

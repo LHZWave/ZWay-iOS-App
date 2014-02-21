@@ -89,6 +89,10 @@
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<bool key="IBUIOn">YES</bool>
+								<object class="NSColor" key="IBUIOnTintColor">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MCAwLjUwMTk2MDgxNCAwLjUwMTk2MDgxNAA</bytes>
+								</object>
 							</object>
 							<object class="IBUIImageView" id="351548533">
 								<reference key="NSNextResponder" ref="903960647"/>

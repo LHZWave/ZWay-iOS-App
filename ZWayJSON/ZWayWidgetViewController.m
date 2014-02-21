@@ -36,9 +36,13 @@
 - (void)viewDidLoad
 {
     currentButton = @"Rooms";
-    roomsButton.tintColor = [UIColor whiteColor];
+    roomsButton.title = NSLocalizedString(@"Rooms", @"");
+    typesButton.title = NSLocalizedString(@"Types", @"");
+    tagsButton.title = NSLocalizedString(@"Tags", @"");
+    noItemsLabel.text = NSLocalizedString(@"NoDevices", @"");
     UIColor *color = self.navigationController.navigationBar.tintColor;
     [self.toolbar setTintColor:color];
+    [self roomsSelected:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -55,11 +59,13 @@
         NSMutableDictionary *dict = [JSON objectForKey:@"data"];
         if([[dict objectForKey:@"structureChanged"] isEqualToNumber:[NSNumber numberWithBool:YES]])
             objects = [[device updateObjects:objects atTimestamp:0] mutableCopy];
+        alertShown = NO;
     }
-    else
+    else if(alertShown == NO)
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:@"There was a problem with the update" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:NSLocalizedString(@"UpdateError", @"Message that an error occured during the update") delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"") otherButtonTitles:nil];
         [alert show];
+        alertShown = YES;
     }
     
     //or set it
@@ -84,27 +90,39 @@
 -(IBAction)roomsSelected:(id)sender
 {
     currentButton = @"Rooms";
+    UIColor *color = self.navigationController.navigationBar.tintColor;
+    [roomsButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:color, UITextAttributeTextColor, nil] forState:UIControlStateNormal];
     [roomsButton setTintColor:[UIColor whiteColor]];
     [typesButton setTintColor:nil];
+    [typesButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:nil, UITextAttributeTextColor, nil] forState:UIControlStateNormal];
     [tagsButton setTintColor:nil];
+    [tagsButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:nil, UITextAttributeTextColor, nil] forState:UIControlStateNormal];
     [tableview reloadData];
 }
 
 -(IBAction)typesSelected:(id)sender
 {
     currentButton = @"Types";
+    UIColor *color = self.navigationController.navigationBar.tintColor;
+    [typesButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:color, UITextAttributeTextColor, nil] forState:UIControlStateNormal];
     [typesButton setTintColor:[UIColor whiteColor]];
     [roomsButton setTintColor:nil];
+    [roomsButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:nil, UITextAttributeTextColor, nil] forState:UIControlStateNormal];
     [tagsButton setTintColor:nil];
+    [tagsButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:nil, UITextAttributeTextColor, nil] forState:UIControlStateNormal];
     [tableview reloadData];
 }
 
 -(IBAction)tagsSelected:(id)sender
 {
     currentButton = @"Tags";
+    UIColor *color = self.navigationController.navigationBar.tintColor;
+    [tagsButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:color, UITextAttributeTextColor, nil] forState:UIControlStateNormal];
     [tagsButton setTintColor:[UIColor whiteColor]];
     [roomsButton setTintColor:nil];
+    [roomsButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:nil, UITextAttributeTextColor, nil] forState:UIControlStateNormal];
     [typesButton setTintColor:nil];
+    [typesButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:nil, UITextAttributeTextColor, nil] forState:UIControlStateNormal];
     [tableview reloadData];
 }
 
@@ -185,16 +203,20 @@
         
         if(location != (id)[NSNull null])
         {
-            NSLog(@"location: %@", location);
-            if([[rooms objectAtIndex:i] isEqualToString:location])
+            for (int j=0; j<rooms.count; j++)
             {
-                NSUInteger index = [rooms indexOfObject:location];
-                NSMutableArray *puffer = [[NSMutableArray alloc]initWithArray:[roomObjects objectAtIndex:index]];
-                [puffer addObject:device];
-                [roomObjects replaceObjectAtIndex:index withObject:puffer];
+                if([[rooms objectAtIndex:j] isEqualToString:location])
+                {
+                    NSUInteger index = [rooms indexOfObject:location];
+                    NSMutableArray *puffer = [[NSMutableArray alloc]initWithArray:[roomObjects objectAtIndex:index]];
+                    [puffer addObject:device];
+                    [roomObjects replaceObjectAtIndex:index withObject:puffer];
+                }
             }
         }
     }
+    
+    [self performSelector:@selector(viewWillAppear:) withObject:[NSNumber numberWithBool:YES] afterDelay:10];
 }
 
 
@@ -281,7 +303,7 @@
     else
     {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        cell.textLabel.text = @"No devices found";
+        cell.textLabel.text = NSLocalizedString(@"NoDevices", @"Message that no devices were found");
         return cell;
     }
 }

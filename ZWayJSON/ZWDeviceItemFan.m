@@ -42,13 +42,13 @@
 - (void)currentTitle
 {
     if([currentState isEqualToString:@"0"])
-        [self.modeView setTitle:@"Auto Low" forState:UIControlStateNormal];
+        [self.modeView setTitle:NSLocalizedString(@"AutoLow", @"") forState:UIControlStateNormal];
     else if ([currentState isEqualToString:@"1"])
-        [self.modeView setTitle:@"On Low" forState:UIControlStateNormal];
+        [self.modeView setTitle:NSLocalizedString(@"OnLow", @"") forState:UIControlStateNormal];
     else if ([currentState isEqualToString:@"2"])
-        [self.modeView setTitle:@"Auto High" forState:UIControlStateNormal];
+        [self.modeView setTitle:NSLocalizedString(@"AutoHigh", @"") forState:UIControlStateNormal];
     else if ([currentState isEqualToString:@"3"])
-        [self.modeView setTitle:@"On High" forState:UIControlStateNormal];
+        [self.modeView setTitle:NSLocalizedString(@"OnHigh", @"") forState:UIControlStateNormal];
 }
 
 - (void)updateState
@@ -57,10 +57,10 @@
     [self currentTitle];
     
     states = [NSMutableArray new];
-    [states addObject:@"Auto Low"];
-    [states addObject:@"On Low"];
-    [states addObject:@"Auto High"];
-    [states addObject:@"On High"];
+    [states addObject:NSLocalizedString(@"AutoLow", @"")];
+    [states addObject:NSLocalizedString(@"OnLow", @"")];
+    [states addObject:NSLocalizedString(@"AutoHigh", @"")];
+    [states addObject:NSLocalizedString(@"OnHigh", @"")];
 }
 
 - (void)setMode:(id)sender
@@ -105,13 +105,13 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    if([[states objectAtIndex:row] isEqualToString:@"Auto Low"])
+    if([[states objectAtIndex:row] isEqualToString:NSLocalizedString(@"AutoLow", @"")])
         currentState = @"0";
-    else if([[states objectAtIndex:row] isEqualToString:@"On Low"])
+    else if([[states objectAtIndex:row] isEqualToString:NSLocalizedString(@"OnLow", @"")])
         currentState = @"1";
-    else if([[states objectAtIndex:row] isEqualToString:@"Auto High"])
+    else if([[states objectAtIndex:row] isEqualToString:NSLocalizedString(@"AutoHigh", @"")])
         currentState = @"2";
-    else if([[states objectAtIndex:row] isEqualToString:@"On High"])
+    else if([[states objectAtIndex:row] isEqualToString:NSLocalizedString(@"OnHigh", @"")])
         currentState = @"3";
     
     [self currentTitle];
